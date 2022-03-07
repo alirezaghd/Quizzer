@@ -2,10 +2,12 @@
 
 include "database.php";
 
-$porsesh = $db->query("SELECT * FROM questions WHERE id = 1"); // یک جدولی که یک رکورد داره
-$porsesh = $porsesh->fetch_assoc(); // یک رکورد
+$number = $_GET["x"];
 
-$pasokhha = $db->query("SELECT * FROM answers WHERE question_id = 1");
+$porsesh_t = $db->query("SELECT * FROM questions WHERE id = $number"); // یک جدولی که یک رکورد داره
+$porsesh = $porsesh_t->fetch_assoc(); // یک رکورد
+
+$pasokhha = $db->query("SELECT * FROM answers WHERE question_id = $number");
 
 
 $porsesh_table = $db->query("SELECT * FROM questions");
@@ -53,10 +55,11 @@ $total =  $porsesh_table->num_rows;
                             <?php echo $porsesh["text"]; ?>
                         </p>
 
-                        <form>
+                        <form method="post" action="process.php">
+                            <input type="hidden" value="<?php echo  $porsesh["id"]?>" name="question_id">
                             <?php foreach ($pasokhha as $pasokh) : ?>
                                 <div class="form-check">
-                                    <input class="form-check-input border-danger" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <input class="form-check-input border-danger" type="radio" value="<?php echo  $pasokh["id"]?>" name="answer" id="flexRadioDefault1">
                                     <label class="form-check-label fs-5" for="flexRadioDefault1">
                                         <?php echo $pasokh["text"]; ?>
                                     </label>
@@ -68,7 +71,7 @@ $total =  $porsesh_table->num_rows;
 
 
 
-                            <button type="submit" class="btn btn-primary mt-3">بعدی</button>
+                            <button type="submit"  class="btn btn-primary mt-3">بعدی</button>
 
                         </form>
 

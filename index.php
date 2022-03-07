@@ -7,7 +7,6 @@ include "database.php";
 $porsesh_table = $db->query("SELECT * FROM questions");
 $total =  $porsesh_table->num_rows;
 
-
 ?>
 
 
@@ -51,7 +50,7 @@ $total =  $porsesh_table->num_rows;
                            <?php echo $total / 2 ?>
                            دقیقه
                         </p>
-                        <a href="questions.php" class="btn btn-primary">
+                        <a href="questions.php?x=1" class="btn btn-primary">
                             بزن بریم
                         </a>
                     </div>
