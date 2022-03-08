@@ -33,10 +33,32 @@ $total =  $porsesh_table->num_rows;
         <!-- منو -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">آزمونک </a>
+                <a class="navbar-brand" href="index.php">آزمونک</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.php">خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">تعرفه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">درباره ما</a>
+                        </li>
 
+                    </ul>
+                    <form class="d-flex mt-2">
+
+                        <button class="btn btn-warning p-3" type="button"> <a href="admin.php"> <span class="fas fa-user-circle text-black" > ورود کاربر / داشبورد</span> </a> </button>
+                    </form>
+
+                </div>
             </div>
         </nav>
+
 
         <div class="row mt-5">
             <div class="col">
@@ -51,7 +73,7 @@ $total =  $porsesh_table->num_rows;
                     </div>
                     <div class="card-body">
 
-                        <p class="card-text fw-bold fs-4">
+                        <p class="card-text fw-bold fs-4 border border-white rounded-3 p-3 w-75 shadow p-3 mb-5 bg-body rounded">
                             <?php echo $porsesh["text"]; ?>
                         </p>
 
@@ -59,8 +81,8 @@ $total =  $porsesh_table->num_rows;
                             <input type="hidden" value="<?php echo  $porsesh["id"]?>" name="question_id">
                             <?php foreach ($pasokhha as $pasokh) : ?>
                                 <div class="form-check">
-                                    <input class="form-check-input border-danger" type="radio" value="<?php echo  $pasokh["id"]?>" name="answer" id="flexRadioDefault1">
-                                    <label class="form-check-label fs-5" for="flexRadioDefault1">
+                                    <input class="form-check-input mt-3  rounded-2 shadow " type="radio" value="<?php echo  $pasokh["id"]?>" name="answer" id="flexRadioDefault1">
+                                    <label class="form-check-label fs-5 mt-2 " for="flexRadioDefault1">
                                         <?php echo $pasokh["text"]; ?>
                                     </label>
 
@@ -82,20 +104,7 @@ $total =  $porsesh_table->num_rows;
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
     </div>
-
-
-
 
 
     <script src="js/bootstrap.js"></script>

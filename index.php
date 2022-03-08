@@ -2,10 +2,12 @@
 
 
 include "database.php";
-
+session_start();
 
 $porsesh_table = $db->query("SELECT * FROM questions");
 $total =  $porsesh_table->num_rows;
+
+$_SESSION["User_Score"] = 0;
 
 ?>
 
@@ -27,8 +29,29 @@ $total =  $porsesh_table->num_rows;
         <!-- منو -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">آزمونک </a>
+                <a class="navbar-brand" href="index.php">آزمونک</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.php">خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">تعرفه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">درباره ما</a>
+                        </li>
 
+                    </ul>
+                    <form class="d-flex mt-2">
+
+                        <button class="btn btn-warning p-3" type="button"> <a href="admin.php"> <span class="fas fa-user-circle text-black" >  ورود کاربر / داشبورد</span> </a> </button>
+                    </form>
+
+                </div>
             </div>
         </nav>
 

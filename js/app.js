@@ -1,11 +1,15 @@
-var container = $('#container');
 
-$(document).on('click', '.list-view li', function(){
-  $(this).addClass('active');
-  container.addClass('details');
-});
+function add_answers(){
 
-$('.back').click(function(){
-  container.removeClass('details');
-  $('.list-view li').removeClass('active');
-});
+
+  var new_input = document.createElement("INPUT");
+  new_input.setAttribute("type", "text");
+
+  new_input.setAttribute("name", "answer");
+
+  new_input.className = "form-control mt-2"
+
+
+  document.getElementById("add").appendChild(new_input);
+
+}
