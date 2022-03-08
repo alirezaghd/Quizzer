@@ -42,12 +42,6 @@ else
 }
 
 
-// new questions
 
-$porsesh = $_POST["answer"];
-
-
-$db->query("INSERT INTO specs(text ) VALUES('$porsesh')");
-header("location:admin.php");
 ?>
 
